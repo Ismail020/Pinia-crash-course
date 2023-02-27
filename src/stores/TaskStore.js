@@ -6,6 +6,5 @@ export const useTaskStore = defineStore('taskStore', {
             { id: 1, title: 'Buy some milk', isFav: false },
             { id: 2, title: 'Play Pokemon', isFav: true },
         ],
-        name: 'John Doe',
     }),
 })
