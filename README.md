@@ -19,12 +19,12 @@ Run dev script
 npm run dev
 ```
 
-Install this
+Install package to run a fake REST API
 ```bash
 npm install -g json-server 
 ```
 
-Run command to set up json file as server
+Set up json file as server
 ```bash
 json-server -w ./data/db.json  
 ```
