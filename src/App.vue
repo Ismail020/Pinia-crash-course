@@ -18,27 +18,32 @@
     </nav>
 
     <!-- loading -->
-    <div class="loading" v-if="taskStore.loading">
+    <div class="loading" v-if="loading">
         Loading tasks...
     </div>
 
     <!-- task list -->
     <div class="task-list" v-if="filter === 'all'">
-      <p>You have {{ taskStore.totalCount }} tasks left to do</p>
-      <div v-for="task in taskStore.tasks">
+      <p>You have {{ totalCount }} tasks left to do</p>
+      <div v-for="task in tasks">
         <TaskDetails :task="task" />
       </div>
     </div>
     <div class="task-list" v-else>
-      <p>You have {{ taskStore.favCount }} tasks left to do</p>
-      <div v-for="task in taskStore.favs">
+      <p>You have {{ favCount }} tasks left to do</p>
+      <div v-for="task in favs">
         <TaskDetails :task="task" />
       </div>
     </div> 
+
+    <button @click="$reset">
+      reset state
+    </button>
   </main>
 </template>
 
 <script>
+import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import TaskDetails from "./components/TaskDetails.vue";
 import TaskForm from "./components/TaskForm.vue";
@@ -52,13 +57,20 @@ export default {
   setup() {
     const taskStore = useTaskStore();
 
+    const { tasks, loading, favs, totalCount, favCount } = storeToRefs(taskStore);
+
     taskStore.getTasks();
 
     const filter = ref('all')
 
     return {
       taskStore,
-      filter
+      filter,
+      tasks,
+      loading,
+      favs,
+      totalCount,
+      favCount
     };
   },
 };
