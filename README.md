@@ -1,29 +1,30 @@
-# pinia-tasks
+# Pinia crash course
 
-This template should help get you started developing with Vue 3 in Vite.
+## Setup for local development
 
-## Recommended IDE Setup
+### First time setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Clone the repository to your device and cd into it
+``` bash 
+git clone https://github.com/Ismail020/Pinia-crash-course.git && cd "$(basename "$_" .git)"
+```
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
+Download packages and dependencies
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
+Run dev script
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+Install this
+```bash
+npm install -g json-server 
+```
 
-```sh
-npm run build
+Run command to set up json file as server
+```bash
+json-server -w ./data/db.json  
 ```
